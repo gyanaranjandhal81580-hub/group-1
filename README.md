@@ -39,3 +39,41 @@ If such abnormal activity is detected, the system marks it as suspicious so it c
 The detected anomalies are shown on the admin dashboard. The admin can view these alerts and monitor system activity.
 
 This helps administrators quickly identify problems or suspicious behavior and take action if necessary.
+ +------------------------------------------------------+
+|                TIER 1 – PRESENTATION LAYER           |
+|------------------------------------------------------|
+| Technologies: HTML, CSS, Vanilla JavaScript          |
+|                                                      |
+| Components:                                          |
+| • index.html  → User/Admin entry point               |
+| • api.js      → Handles API calls (login, checkout)  |
+| • dashboard.js→ Admin dashboard & charts             |
+| • logs.html/js→ Log viewer & anomaly display         |
++------------------------------------------------------+
+                        │
+                        │  HTTP REST API (JSON, CORS)
+                        ▼
++------------------------------------------------------+
+|                TIER 2 – APPLICATION LAYER            |
+|------------------------------------------------------|
+| Technologies: FastAPI, Python, Pydantic              |
+|                                                      |
+| Backend Files:                                       |
+| • main.py      → REST API endpoints                  |
+| • models.py    → Pydantic data validation models     |
+| • services.py  → Business logic & anomaly detection  |
+| • payment.py   → Razorpay payment processing         |
++------------------------------------------------------+
+                        │
+                        │  Database Queries (PyMongo)
+                        ▼
++------------------------------------------------------+
+|                   TIER 3 – DATA LAYER                |
+|------------------------------------------------------|
+| Technology: MongoDB Atlas                            |
+|                                                      |
+| Collections:                                         |
+| • users       → email, password, role                |
+| • db_logs     → login activity logs                  |
+| • db_payments → payment transaction logs             |
++------------------------------------------------------+
